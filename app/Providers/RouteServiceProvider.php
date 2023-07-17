@@ -7,6 +7,7 @@ use Vanguard\Permission;
 use Vanguard\Repositories\Role\RoleRepository;
 use Vanguard\Repositories\Session\SessionRepository;
 use Vanguard\Repositories\User\UserRepository;
+use Vanguard\Repositories\PotentialProduct\PotentialProductRePository;
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -36,6 +37,7 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot();
 
         $this->bindUser();
+        $this->bindPotenialProdut();
         $this->bindRole();
         $this->bindSession();
     }
@@ -92,6 +94,11 @@ class RouteServiceProvider extends ServiceProvider
     private function bindUser()
     {
         $this->bindUsingRepository('user', UserRepository::class);
+    }
+
+    private function  bindPotenialProdut()
+    {
+        $this->bindUsingRepository('potential_products', PotentialProductRePository::class);
     }
 
     private function bindRole()

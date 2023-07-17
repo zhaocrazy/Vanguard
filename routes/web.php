@@ -320,6 +320,18 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'ActivityController@userActivity'
     ]);
 
+    // add new route
+    Route::get('products/spider', 'PotentialProductController@spider');
+    Route::get('products/downloadImage', [
+        'as' => 'products.downloadImage',
+        'uses'=>'PotentialProductController@downloadImage']);
+    Route::get('products/index', [
+        'as' => 'products.index',
+        'uses'=>'PotentialProductController@index']);
+    Route::resource('products','PotentialProductController')->only(['index']);
+
+
+
 });
 
 
@@ -371,3 +383,4 @@ $router->get('install/error', [
     'as' => 'install.error',
     'uses' => 'InstallController@error'
 ]);
+

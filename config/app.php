@@ -195,6 +195,8 @@ return [
         Vanguard\Providers\RouteServiceProvider::class,
         Vanguard\Services\Auth\TwoFactor\AuthyServiceProvider::class,
 
+        ShaoZeMing\LaravelTranslate\TranslateServiceProvider::class,
+
     ],
 
     /*
@@ -255,7 +257,7 @@ return [
         'Authy' => Vanguard\Services\Auth\TwoFactor\Facade::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
-
+        'Translate' => ShaoZeMing\LaravelTranslate\Facade\Translate::class,
     ],
 
 ];

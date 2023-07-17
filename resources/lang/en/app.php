@@ -1,6 +1,21 @@
 <?php
 
 return [
+    'tool'=>'Tool',
+    'potential_product'=>'Potential Product',
+    'pdf'=>'PDF',
+    'product_id'=>'ID',
+    'product_rank'=>'Rank',
+    'product_thumbnail'=>'Thumbnail',
+    'product_url'=>'URL',
+    'product_price'=>'Price',
+    'product_original_title'=>'Original_Title',
+    'product_original_description'=>'Original_Description',
+    'product_chinese_title'=>'Chinese_Title',
+    'product_chinese_description'=>'Chinese_Description',
+    'product_image'=>'Image',
+
+    // Vanguard
     'home' => 'Home',
     'my_profile' => 'My Profile',
     'active_sessions' => 'Active Sessions',

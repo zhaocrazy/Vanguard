@@ -116,6 +116,32 @@
                 </ul>
             </li>
             @endpermission
+
+            @permission(['roles.manage', 'permissions.manage'])
+            <li class="nav-item">
+                <a href="#tool"
+                   class="nav-link"
+                   data-toggle="collapse"
+                   aria-expanded="{{ Request::is('role*') || Request::is('permission*') ? 'true' : 'false' }}">
+                    <i class="fas fa-users-cog"></i>
+                    <span>@lang('app.tool')</span>
+                </a>
+                <ul class="{{ Request::is('role*') || Request::is('permission*') ? '' : 'collapse' }} list-unstyled sub-menu" id="tool">
+                    @permission('roles.manage')
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('role*') ? 'active' : '' }}"
+                           href="{{ route('products.index') }}">@lang('app.potential_product')</a>
+                    </li>
+                    @endpermission
+                    @permission('permissions.manage')
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('permission*') ? 'active' : '' }}"
+                           href="{{ route('permission.index') }}">@lang('app.pdf')</a>
+                    </li>
+                    @endpermission
+                </ul>
+            </li>
+            @endpermission
         </ul>
     </div>
 </nav>
