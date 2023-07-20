@@ -341,6 +341,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('pdf/edit', [
         'as' => 'pdf.edit',
         'uses'=>'pdfController@edit']);
+    Route::get('logical/taskFirst', [
+        'as' => 'logical.taskFirst',
+        'uses'=>'LogicalController@taskFirst']);
+    Route::get('logical/taskSecond', [
+        'as' => 'logical.taskSecond',
+        'uses'=>'LogicalController@taskSecond']);
 
 });
 
