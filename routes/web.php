@@ -328,9 +328,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('products/index', [
         'as' => 'products.index',
         'uses'=>'PotentialProductController@index']);
-    Route::resource('products','PotentialProductController')->only(['index']);
-
-
+    //Route::resource('products','PotentialProductController')->only(['index']);
+    Route::get('pdf/index', [
+        'as' => 'pdf.index',
+        'uses'=>'pdfController@index']);
+    Route::post('pdf/upload', [
+        'as' => 'pdf.upload',
+        'uses'=>'pdfController@upload']);
+    Route::get('pdf/download', [
+        'as' => 'pdf.download',
+        'uses'=>'pdfController@download']);
+    Route::post('pdf/edit', [
+        'as' => 'pdf.edit',
+        'uses'=>'pdfController@edit']);
 
 });
 

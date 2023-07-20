@@ -21,8 +21,11 @@
         "laravel/socialite": "^3.0",
         "laravelcollective/html": "^5.1",
         "league/fractal": "^0.16.0",
+        "ordinary9843/ghostscript": "^1.2",
         "paragonie/random_compat": "~1.4",
         "proengsoft/laravel-jsvalidation": "2.2.*",
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi": "^2.3",
         "shaozeming/laravel-translate": "^1.0",
         "tymon/jwt-auth": "1.0.0-rc.2",
         "webpatser/laravel-countries": "dev-master"
