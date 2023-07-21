@@ -152,13 +152,13 @@ class PdfController extends Controller
 
     public function fillPDFFile($file, $outputFilePath, $data)
     {
-//        fix  different pdf versions  and adjust  according enviroment
-//        $binPath = '/usr/bin/gs'; //C:\Program Files\gs\gs10.01.2\bin\gswin64c
-//        $binPath ='C:\Program Files\gs\gs10.01.2\bin\gswin64c';
-//        $tmpPath = public_path("upload/pdf/tmp");
-//        $ghostscript = new Ghostscript($binPath, $tmpPath);
-//        $ghostscript->convert($file, Ghostscript::STABLE_VERSION);
-//        $ghostscript->deleteTmpFile();
+        //fix  different pdf versions  STABLE_VERSION default 1.4  and adjust  according enviroment
+        //$binPath ='C:\Program Files\gs\gs10.01.2\bin\gswin64c'; //Window enviroment need to test
+        $binPath = '/usr/bin/gs';    //uniix enviroment test is ok
+        $tmpPath = public_path("upload/pdf/tmp");
+        $ghostscript = new Ghostscript($binPath, $tmpPath);
+        $ghostscript->convert($file, Ghostscript::STABLE_VERSION);
+        // $ghostscript->deleteTmpFile();
 
         $fpdi = new FPDI;
 
