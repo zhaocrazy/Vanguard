@@ -20,12 +20,21 @@ class PdfController extends Controller
     {
         $userId = \Auth::user()->id;
 
-        $last = Pdflog::where([['user_id','=', $userId],['type','=',1]])->orderby('created_at', 'desc')->first()->toArray();
+        $last = Pdflog::where([['user_id','=', $userId],['type','=',1]])->orderby('created_at', 'desc')->first();
 
-        return view('pdf.index', [
-            'created_at' => $last['created_at'], 'name' => $last['name'],
-            "downUrl" => route('pdf.download'),
-            "editUrl" => route('pdf.edit')]);
+        if(!empty($last)){
+            $last = $last->toArray();
+            return view('pdf.index', [
+                'created_at' => $last['created_at'], 'name' => $last['name'],
+                "downUrl" => route('pdf.download'),
+                "editUrl" => route('pdf.edit')]);
+        }else{
+            return view('pdf.index', [
+                'created_at' =>'', 'name' => '',
+                "downUrl" => route('pdf.download'),
+                "editUrl" => route('pdf.edit')]);
+        }
+
     }
 
     public function upload(Request $request)
@@ -143,7 +152,7 @@ class PdfController extends Controller
 
     public function fillPDFFile($file, $outputFilePath, $data)
     {
-//        fix  different pdf versions
+//        fix  different pdf versions  and adjust  according enviroment
 //        $binPath = '/usr/bin/gs'; //C:\Program Files\gs\gs10.01.2\bin\gswin64c
 //        $binPath ='C:\Program Files\gs\gs10.01.2\bin\gswin64c';
 //        $tmpPath = public_path("upload/pdf/tmp");
